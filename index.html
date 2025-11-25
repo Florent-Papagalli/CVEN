@@ -33,7 +33,6 @@
 
     /* ----------------------------------
        NAVIGATION
-       (Introduction / Achievements / Previous Experience)
     ---------------------------------- */
     .navbar {
       position: fixed;
@@ -71,18 +70,9 @@
 
     /* ----------------------------------
        3-COLUMN LAYOUT
-         - Left: Contact
-         - Center: Main sections (wider)
-         - Right: Tools, Languages, Education
     ---------------------------------- */
     .layout {
       display: grid;
-      /*
-        Wider layout
-        Left column: 260px
-        Center column: minmax(1100px, 1fr)
-        Right column: 260px
-      */
       grid-template-columns: 260px minmax(1100px, 1fr) 260px;
       gap: 40px;
       max-width: 1800px;
@@ -149,7 +139,7 @@
     }
 
     /* ----------------------------------
-       "POSITIONNEMENT" BOX
+       "POSITION" BOX
     ---------------------------------- */
     .positionnement-box {
       position: relative;
@@ -211,7 +201,6 @@
 
     /* ----------------------------------
        ACHIEVEMENTS
-       (slightly colored background + tiles)
     ---------------------------------- */
     #realisations {
       background: linear-gradient(45deg, #eef9ff, #f5fcff);
@@ -355,10 +344,14 @@
       margin-top: 0.4rem;
       font-size: 0.95rem;
     }
+    .skills-line {
+      margin-top: 6px;
+      font-size: 0.85rem;
+      color: #555;
+    }
 
     /* ----------------------------------
        TOOLS & LANGUAGES
-       -> Slight gradient
     ---------------------------------- */
     .sidebar-section-tools {
       background: linear-gradient(45deg, #ecfcff, #f5ffff);
@@ -384,7 +377,6 @@
 
     /* ----------------------------------
        EDUCATION
-       -> We make it "pop" more
     ---------------------------------- */
     .sidebar-section-formation {
       background: linear-gradient(45deg, #fff6da, #ffeeb5);
@@ -392,7 +384,7 @@
       border-radius: 12px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.04);
       padding: 20px;
-      margin-top: 2rem; /* small gap above Tools & Languages */
+      margin-top: 2rem;
     }
     .sidebar-section-formation h2 {
       color: #cc8a00;
@@ -523,7 +515,6 @@
         border: 1px solid #444;
       }
 
-      /* Education pop in dark mode */
       .sidebar-section-formation {
         background: linear-gradient(45deg, #2c2c2c, #3a3a3a);
         border: 1px solid #555;
@@ -588,7 +579,7 @@
         <div class="hero">
           <div class="hero-right">
             <img
-              src="https://media.licdn.com/dms/image/v2/D4D03AQHoAbJ3HoZkwA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1711397858124?e=1745452800&v=beta&t=FPSpWaMrAipl0dDfF44hIroRfPu2Q6K0sdPIJPPGuw0"
+              src="https://media.licdn.com/dms/image/v2/D4D03AQHoAbJ3HoZkwA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1711397858124?e=1765411200&v=beta&t=9v8CBmppqXFK0_faxySXv69jEeV7oE7ixpf6OJ7Mhms"
               alt="Photo of Florent Papagalli"
             />
           </div>
@@ -609,7 +600,7 @@
             </p>
           </div>
         </div>
-        <!-- Positionnement -->
+        <!-- Position -->
         <div class="positionnement-box">
           <h2>Position</h2>
           <p class="job-title">Service Delivery Manager</p>
@@ -624,11 +615,13 @@
         <h2>Introduction</h2>
         <div class="section-content">
           <p>
-            As a multifaceted IT professional, I have progressed from 
-            <strong>VIP technical support</strong> to <strong>incident/problem management</strong> 
-            and <strong>project coordination</strong>. With over 9 months of experience as a 
-            <strong>Service Delivery Manager</strong>, my goal now is to fully dedicate myself to this field, 
-            where I can make use of my communication skills, leadership, and multifaceted expertise.
+            Versatile IT professional, having moved from <strong>VIP support</strong> to
+            <strong>Incident/Problem Management</strong> and then into
+            <strong>Service Delivery</strong>.
+            Currently <strong>Service Delivery Manager at Experis</strong> for <strong>Danone</strong>,
+            I leverage clear communication, leadership of cross-functional teams
+            and a strong results-oriented mindset (SLA/KPI, continuous
+            improvement).
           </p>
         </div>
       </section>
@@ -647,11 +640,10 @@
               Service Delivery
             </h3>
             <ul>
-              <li>Improved <strong>customer satisfaction</strong> by 20%</li>
-              <li>Redesigned documentation for <strong>steering committees</strong></li>
-              <li>Implemented Power BI reporting for <strong>IT service tracking</strong></li>
-              <li>Presented innovation solutions in English, adapted to the <strong>Danone FR</strong> context, to Europe’s CIOs</li>
-              <li>Optimized <strong>asset management</strong> (maintained consistency at ≈ 96%)</li>
+              <li>Redesigned <strong>steering committee</strong> materials and reporting.</li>
+              <li>Implemented <strong>“weather” indicators</strong> for each service line for efficient IT service monitoring.</li>
+              <li>Designed and formalised a <strong>crisis management process</strong> and business communication framework.</li>
+              <li>Optimised <strong>stock management</strong> to ensure full consistency between logical data and physical inventory.</li>
             </ul>
           </div>
           <!-- Card 2 -->
@@ -664,9 +656,10 @@
               Incident &amp; Problem Management
             </h3>
             <ul>
-              <li>Developed an automated backlog tracking system to measure process evolution</li>
-              <li>Reduced the acknowledgment time for critical incidents by 35%</li>
-              <li>Developed a turnkey solution for <strong>crisis management, IT communication, and RCA production</strong></li>
+              <li>Supervision of <strong>P1/P2</strong> incidents from the Control Tower, leading crisis calls.</li>
+              <li>Automated <strong>alerting and history</strong> for P1/P2 to improve responsiveness and ease post-mortem handling.</li>
+              <li>Redesigned templates and raised awareness around <strong>RCAs, post-mortems and known errors</strong> to improve operational efficiency.</li>
+              <li>Led <strong>CAB and eCAB</strong> to enable responsive, proactive change management while minimising business impact.</li>
             </ul>
           </div>
           <!-- Card 3 -->
@@ -679,9 +672,8 @@
               Project Management
             </h3>
             <ul>
-              <li><strong>Refresh Project</strong>: Updating the mobile and PC fleet (2,500 devices) across six sites.</li>
-              <li>Turnkey <strong>Automated</strong> solution for appointment management and follow-ups.</li>
-              <li><strong>Monitoring &amp; Reporting</strong>: Conducting meetings, Power BI dashboards for tracking and history.</li>
+              <li><strong>Refresh</strong> of mobile and PC fleet.</li>
+              <li><strong>Automated</strong> appointment &amp; reminder solution, tracking dashboards and history.</li>
             </ul>
           </div>
         </div>
@@ -701,7 +693,7 @@
             >
             <div class="esn-info">
               <h3>EXPERIS</h3>
-              <span>(March 2022 – Present)</span>
+              <span>March 2022 – Present</span>
             </div>
           </div>
 
@@ -716,38 +708,31 @@
               <div>
                <h4>DANONE</h4>
                  <div class="location-dates">
-                  (Paris, Île-de-France) - March 2023 to Present
+                  Rueil-Malmaison, Île-de-France, France — Mar. 2023 to Present
                 </div>
               </div>
             </div>
-            <div class="job-title">
-              Incident &amp; Problem Manager (Mar. 2023 – Present)
-            </div>
-            <ul>
-              <li>Steering and coordinating ITIL Incident &amp; Problem Management processes; managing multi-expertise crisis groups (network, applications, security, infrastructure).</li>
-              <li>Operational coordination of technical teams in major critical incidents, making strategic decisions to ensure rapid and effective resolution.</li>
-              <li>Creation and use of a crisis management tool to handle tracking, incident management, and stakeholder communication.</li>
-              <li>Continuous optimization of ITIL processes, significantly improving key metrics.</li>
-            </ul>
 
-            <div class="job-title">
-              Service Delivery Manager (Dec. 2023 – Sept. 2024)
-            </div>
+            <div class="job-title">Service Delivery Manager — Permanent (Apr. 2025 – Present)</div>
             <ul>
-              <li>Operational oversight of the outsourcing scope, ensuring compliance with contractual commitments and SLAs.</li>
-              <li>Daily and weekly meetings with technical teams for operations follow-up, as well as steering committees with the client.</li>
-              <li>Defined a transparent communication strategy for operational crises or service deviations.</li>
-              <li>Measurements and continuous improvements through performance indicator tracking.</li>
+              <li>Management of a global outsourcing contract (Service Desk, 6 OSS teams, Control Tower: Incident, UX, Knowledge).</li>
+              <li>Leading client steering committees with transparent, business-aligned governance.</li>
+              <li>Close monitoring of <strong>SLA/KPI</strong>, risk anticipation mechanisms and proactive resolution.</li>
+              <li>Continuous improvement to increase customer satisfaction and internal efficiency.</li>
             </ul>
+            <p class="skills-line"><em>Skills:</em> Microsoft Power BI</p>
 
-            <div class="job-title">
-              Project Manager (Mar. 2023 – Feb. 2024)
-            </div>
+            <div class="job-title" style="margin-top:10px;">Incident &amp; Problem Manager (Mar. 2023 – Apr. 2025)</div>
             <ul>
-              <li>Led a project to update the IT equipment fleet.</li>
-              <li>Designed and deployed an automated solution to optimize project management.</li>
-              <li>Delivered projects on schedule and significantly enhanced operational efficiency through rigorous coordination and smooth communication with teams.</li>
+              <li>Supervision of major incidents/problems (P1/P2) from the Control Tower, in coordination with UX &amp; Knowledge.</li>
+              <li>Fast resolution of critical incidents to guarantee service continuity.</li>
+              <li>Coordination of crisis management strategies and support to project teams.</li>
+              <li>Continuous improvement to maintain a high level of satisfaction.</li>
             </ul>
+            <p class="skills-line">
+              <em>Skills:</em>
+              Problem Management · ITIL · IT Service Management · SLA · KPI · Project Management · Microsoft Power BI · Incident Management
+            </p>
           </div>
 
           <!-- Mission: Christian Dior Couture -->
@@ -761,22 +746,25 @@
               <div>
                 <h4>CHRISTIAN DIOR COUTURE</h4>
                 <div class="location-dates">
-                  (Paris, Île-de-France) - March 2022 to Sept. 2022
+                  Paris, Île-de-France, France — Mar. 2022 to Apr. 2023
                 </div>
               </div>
             </div>
-            <div class="job-title">
-              Helpdesk Technician (March 2022 – September 2022)
-            </div>
+
+            <div class="job-title">Onsite VIP Support — Permanent (Oct. 2022 – Apr. 2023) · Hybrid</div>
             <ul>
-              <li>Trilingual support (French/English/Chinese)</li>
+              <li>VIP support on site and in showrooms; flawless formal communication.</li>
+              <li>Training new technicians; writing knowledge base articles.</li>
             </ul>
-            <div class="job-title">
-              VIP Technician (Sept. 2022 – March 2023)
-            </div>
+
+            <div class="job-title">Showroom IT Support — Permanent (Dec. 2022 – Apr. 2023) · On-site</div>
             <ul>
-              <li>Onsite and Showrooms, formal presentation and flawless communication</li>
-              <li>Training new technicians, writing Knowledge Base articles</li>
+              <li>Support on events/showrooms, preparation and setup of workstations.</li>
+            </ul>
+
+            <div class="job-title">IT Help Desk Technician — Contract (Mar. 2022 – Sep. 2022)</div>
+            <ul>
+              <li>Trilingual support (FR/EN/ZH), multi-channel intake and L1 resolution.</li>
             </ul>
           </div>
         </div><!-- End of Professional Background -->
@@ -792,7 +780,7 @@
             >
             <div>
               <h4>Translation &amp; Teaching</h4>
-              <div class="location-dates">(2016 – 2022)</div>
+              <div class="location-dates">2016 – 2022</div>
             </div>
           </div>
           <ul>
@@ -820,11 +808,11 @@
               Tools
             </h3>
             <ul>
-              <li>ServiceNow, EasyVista</li>
+              <li>ServiceNow</li>
               <li>Notion, Trello</li>
               <li>Power Automate</li>
               <li>Excel (VBA)</li>
-              <li>Power Bi (DAX, Power Query)</li>
+              <li>Power BI (DAX, Power Query)</li>
             </ul>
           </div>
           <!-- Languages -->
@@ -845,7 +833,7 @@
         </div>
       </section>
 
-      <!-- Education: Make it pop -->
+      <!-- Education -->
       <section class="sidebar-section-formation">
         <h2>Education</h2>
         <div class="education-cards-container">
