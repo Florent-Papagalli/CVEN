@@ -2,353 +2,202 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CV - Florent Papagalli</title>
   <style>
     /* ----------------------------------
        RESET & BASE
     ---------------------------------- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: "Trebuchet MS", Arial, sans-serif;
       background-color: #f3f7fa;
       color: #333;
       line-height: 1.5;
     }
-    a {
-      color: #0056b3;
-      text-decoration: none;
-      transition: color 0.2s ease-in;
-    }
-    a:hover {
-      text-decoration: underline;
-      color: #003d80;
-    }
+    a { color: #0056b3; text-decoration: none; transition: color 0.2s ease-in; }
+    a:hover { text-decoration: underline; color: #003d80; }
 
     /* ----------------------------------
        NAVIGATION
     ---------------------------------- */
     .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
+      position: fixed; top: 0; left: 0; width: 100%;
       background-color: #fff;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.07);
-      z-index: 999;
-      display: flex;
-      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.07);
+      z-index: 999; display: flex; justify-content: center;
       padding: 0.5rem 0;
     }
     .nav-container {
-      max-width: 1400px;
-      width: 100%;
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-      padding: 0 20px;
+      max-width: 1400px; width: 100%;
+      display: flex; gap: 1rem; align-items: center; padding: 0 20px;
     }
-    .navbar ul {
-      display: flex;
-      gap: 1rem;
-      list-style: none;
-    }
-    .navbar li {
-      margin: 0.7rem 0;
-    }
-    .navbar a {
-      font-weight: bold;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-    }
+    .navbar ul { display: flex; gap: 1rem; list-style: none; flex-wrap: wrap; }
+    .navbar li { margin: 0.7rem 0; }
+    .navbar a { font-weight: bold; font-size: 0.95rem; text-transform: uppercase; }
 
     /* ----------------------------------
-       3-COLUMN LAYOUT
+       LAYOUT 3 COLUMNS
     ---------------------------------- */
     .layout {
       display: grid;
-      grid-template-columns: 260px minmax(1100px, 1fr) 260px;
-      gap: 40px;
-      max-width: 1800px;
-      margin: 0 auto;
-      padding: 100px 40px 60px;
+      grid-template-columns: 260px minmax(900px, 1fr) 260px;
+      gap: 40px; max-width: 1800px; margin: 0 auto; padding: 100px 40px 60px;
     }
-    .sidebar-left,
-    .sidebar-right {
-      position: sticky;
-      top: 90px;
-      align-self: start;
-      height: fit-content;
+    .sidebar-left, .sidebar-right { position: sticky; top: 90px; align-self: start; height: fit-content; }
+
+    /* Responsive fallback */
+    @media (max-width: 1280px) {
+      .layout { grid-template-columns: 1fr; padding: 90px 20px 40px; }
+      .sidebar-left, .sidebar-right { position: static; }
     }
 
     /* ----------------------------------
-       SECTION HIGHLIGHT ANIMATION ON CLICK
+       CLICK HIGHLIGHT ANIMATION
     ---------------------------------- */
     @keyframes highlightPop {
-      0%   { transform: scale(1); box-shadow: none; }
-      50%  { transform: scale(1.02); box-shadow: 0 0 20px rgba(0,0,0,0.08); }
+      0% { transform: scale(1); box-shadow: none; }
+      50% { transform: scale(1.02); box-shadow: 0 0 20px rgba(0,0,0,0.08); }
       100% { transform: scale(1); box-shadow: none; }
     }
-    .section-highlight {
-      animation: highlightPop 0.8s ease;
-    }
+    .section-highlight { animation: highlightPop 0.8s ease; }
 
     /* ----------------------------------
        CONTACT CARD (left sidebar)
     ---------------------------------- */
     .contact-section {
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px;
+      background: #fff; border-radius: 12px; padding: 20px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 1rem;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: 1rem;
     }
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-    .hero-left h1 {
-      font-size: 1.6rem;
-      color: #444;
-      margin-bottom: 0.3rem;
-    }
-    .hero-left .sub-info {
-      color: #666;
-      font-size: 0.9rem;
-      line-height: 1.4;
-    }
+    .hero { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .hero-left h1 { font-size: 1.6rem; color: #444; margin-bottom: 0.3rem; }
+    .hero-left .sub-info { color: #666; font-size: 0.9rem; line-height: 1.4; }
     .hero-right img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+      width: 120px; height: 120px; border-radius: 50%;
+      object-fit: cover; box-shadow: 0 2px 5px rgba(0,0,0,0.15);
     }
 
     /* ----------------------------------
-       "POSITION" BOX
+       POSITIONING BOX
     ---------------------------------- */
     .positionnement-box {
       position: relative;
       background: linear-gradient(45deg, #004f9e, #468bd6);
-      color: #fff;
-      border-radius: 12px;
-      padding: 20px 15px;
+      color: #fff; border-radius: 12px; padding: 20px 15px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.07);
-      text-align: center;
-      margin-top: 0.5rem;
+      text-align: center; margin-top: 0.5rem;
     }
     .positionnement-box::before {
-      content: "";
-      position: absolute;
-      top: 12px;
-      left: 50%;
+      content: ""; position: absolute; top: 12px; left: 50%;
       transform: translateX(-50%);
-      width: 50px;
-      height: 3px;
+      width: 50px; height: 3px;
       background-color: rgba(255,255,255,0.4);
       border-radius: 5px;
     }
     .positionnement-box h2 {
       margin: 0.5rem 0 0.5rem 0;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #ffffff;
-      font-weight: 600;
+      font-size: 0.9rem; text-transform: uppercase;
+      letter-spacing: 1px; color: #ffffff; font-weight: 600;
     }
     .positionnement-box .job-title {
       margin: 0.3rem 0 0.2rem;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: #ffffff;
+      font-size: 1.1rem; font-weight: 700; color: #ffffff;
+      line-height: 1.3;
+    }
+    .positionnement-box .subtitle {
+      font-size: 0.9rem; opacity: 0.95;
     }
 
     /* ----------------------------------
-       MAIN SECTIONS (center)
+       CENTRAL SECTIONS
     ---------------------------------- */
-    section {
-      margin-bottom: 3rem;
-      scroll-margin-top: 100px;
-    }
+    section { margin-bottom: 3rem; scroll-margin-top: 100px; }
     section h2 {
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
-      color: #555;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 5px;
+      margin-bottom: 1rem; font-size: 1.2rem; color: #555;
+      text-transform: uppercase; letter-spacing: 1px;
+      border-bottom: 1px solid #eee; padding-bottom: 5px;
     }
-    .section-content p {
-      font-size: 0.95rem;
-      line-height: 1.5;
-      color: #444;
-    }
+    .section-content p { font-size: 0.95rem; line-height: 1.5; color: #444; }
 
     /* ----------------------------------
        ACHIEVEMENTS
     ---------------------------------- */
-    #realisations {
+    #achievements {
       background: linear-gradient(45deg, #eef9ff, #f5fcff);
       border: 1px solid #cce7fa;
-      border-radius: 12px;
-      padding: 30px;
-      margin-bottom: 3rem;
+      border-radius: 12px; padding: 30px; margin-bottom: 3rem;
       box-shadow: 0 2px 5px rgba(0,0,0,0.04);
     }
-    #realisations h2 {
-      color: #004f9e;
-      border-bottom-color: rgba(0,79,158,0.1);
-    }
-    .comp-cards-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
+    #achievements h2 { color: #004f9e; border-bottom-color: rgba(0,79,158,0.1); }
+    .comp-cards-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
     .comp-card {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      background: #fff; border: 1px solid #ddd; border-radius: 8px;
+      padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
       transition: transform 0.2s ease-in;
     }
-    .comp-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+    .comp-card:hover { transform: translateY(-3px); box-shadow: 0 4px 6px rgba(0,0,0,0.08); }
+    .comp-card h3 { display: flex; align-items: center; font-size: 1.05rem; margin-bottom: 0.5rem; color: #444; }
+    .comp-card h3 img { width: 28px; height: 28px; margin-right: 8px; }
+    .comp-card ul { list-style-type: disc; margin-left: 1.5rem; margin-top: 0.5rem; font-size: 0.9rem; line-height: 1.4; }
+    .comp-card li { margin-bottom: 0.35rem; }
+
+    /* KPI row */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin: 12px 0 18px;
     }
-    .comp-card h3 {
-      display: flex;
-      align-items: center;
-      font-size: 1.05rem;
-      margin-bottom: 0.5rem;
-      color: #444;
+    .kpi {
+      background: #ffffff;
+      border: 1px solid #dcecf8;
+      border-radius: 10px;
+      padding: 12px 14px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
     }
-    .comp-card h3 img {
-      width: 28px;
-      height: 28px;
-      margin-right: 8px;
-    }
-    .comp-card ul {
-      list-style-type: disc;
-      margin-left: 1.5rem;
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-      line-height: 1.4;
-    }
+    .kpi .label { font-size: 0.78rem; color: #667; text-transform: uppercase; letter-spacing: 0.8px; }
+    .kpi .value { font-size: 1.1rem; font-weight: 700; color: #1f2a37; margin-top: 2px; }
 
     /* ----------------------------------
-       WORK EXPERIENCE
+       EXPERIENCE
     ---------------------------------- */
     .experience-box {
-      margin-bottom: 2rem;
-      background: #e7f4ff;
-      border-left: 6px solid #004f9e;
-      border-radius: 6px;
-      padding: 15px 20px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      margin-bottom: 2rem; background: #e7f4ff;
+      border-left: 6px solid #004f9e; border-radius: 6px;
+      padding: 15px 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);
     }
     .experience-box .exp-title {
-      margin: 0 0 0.5rem 0;
-      color: #004f9e;
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      margin: 0 0 0.5rem 0; color: #004f9e;
+      font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px;
     }
     .esn-card {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      padding: 15px;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;
+      background: #fff; border: 1px solid #ddd; border-radius: 6px;
+      padding: 15px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
       transition: transform 0.2s ease-in;
     }
-    .esn-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 3px 5px rgba(0,0,0,0.07);
-    }
-    .company-logo {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-    }
-    .esn-info h3 {
-      margin: 0;
-      font-size: 1.1rem;
-      color: #444;
-    }
-    .esn-info span {
-      display: block;
-      font-size: 0.9rem;
-      color: #777;
-    }
+    .esn-card:hover { transform: translateY(-2px); box-shadow: 0 3px 5px rgba(0,0,0,0.07); }
+    .company-logo { width: 48px; height: 48px; object-fit: contain; }
+    .esn-info h3 { margin: 0; font-size: 1.1rem; color: #444; }
+    .esn-info span { display: block; font-size: 0.9rem; color: #777; }
+
     .mission-card {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      padding: 15px;
-      margin-bottom: 1rem;
+      background: #fff; border: 1px solid #ddd; border-radius: 6px;
+      padding: 15px; margin-bottom: 1rem;
       box-shadow: 0 1px 2px rgba(0,0,0,0.05);
       transition: transform 0.2s ease-in;
     }
-    .mission-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 3px 5px rgba(0,0,0,0.07);
-    }
-    .mission-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 10px;
-    }
-    .mission-header h4 {
-      margin: 0;
-      font-size: 1rem;
-      color: #444;
-    }
-    .mission-header .location-dates {
-      font-size: 0.85rem;
-      color: #777;
-      margin-top: 2px;
-    }
-    .mission-card ul {
-      list-style-type: disc;
-      margin-left: 1.2rem;
-      margin-top: 0.4rem;
-      line-height: 1.4;
-    }
-    .mission-card ul li {
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
-    }
-    .job-title {
-      font-weight: bold;
-      margin-top: 0.4rem;
-      font-size: 0.95rem;
-    }
-    .skills-line {
-      margin-top: 6px;
-      font-size: 0.85rem;
-      color: #555;
-    }
+    .mission-card:hover { transform: translateY(-2px); box-shadow: 0 3px 5px rgba(0,0,0,0.07); }
+    .mission-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 10px; }
+    .mission-header h4 { margin: 0; font-size: 1rem; color: #444; }
+    .mission-header .location-dates { font-size: 0.85rem; color: #777; margin-top: 2px; }
+    .mission-card ul { list-style-type: disc; margin-left: 1.2rem; margin-top: 0.4rem; line-height: 1.4; }
+    .mission-card ul li { font-size: 0.9rem; margin-bottom: 0.3rem; }
+    .job-title { font-weight: bold; margin-top: 0.4rem; font-size: 0.95rem; }
+    .skills-line { margin-top: 6px; font-size: 0.85rem; color: #555; }
 
     /* ----------------------------------
        TOOLS & LANGUAGES
@@ -356,24 +205,12 @@
     .sidebar-section-tools {
       background: linear-gradient(45deg, #ecfcff, #f5ffff);
       border: 1px solid #b4ecf2;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+      border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.04);
       padding: 20px;
     }
-    .sidebar-section-tools h2 {
-      color: #008b9e;
-      border-bottom: 1px solid rgba(0,139,158,0.2);
-    }
-    .sidebar-section-tools .comp-card {
-      background: #ffffff;
-      border: 1px solid #ddd;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease-in;
-    }
-    .sidebar-section-tools .comp-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 3px 5px rgba(0,0,0,0.07);
-    }
+    .sidebar-section-tools h2 { color: #008b9e; border-bottom: 1px solid rgba(0,139,158,0.2); }
+    .sidebar-section-tools .comp-card { background: #ffffff; border: 1px solid #ddd; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: transform 0.2s ease-in; }
+    .sidebar-section-tools .comp-card:hover { transform: translateY(-2px); box-shadow: 0 3px 5px rgba(0,0,0,0.07); }
 
     /* ----------------------------------
        EDUCATION
@@ -381,173 +218,76 @@
     .sidebar-section-formation {
       background: linear-gradient(45deg, #fff6da, #ffeeb5);
       border: 1px solid #ffe28e;
-      border-radius: 12px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.04);
-      padding: 20px;
-      margin-top: 2rem;
+      border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+      padding: 20px; margin-top: 2rem;
     }
     .sidebar-section-formation h2 {
-      color: #cc8a00;
-      border-bottom: 1px solid rgba(204,138,0,0.2);
-      margin-bottom: 1rem;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding-bottom: 5px;
+      color: #cc8a00; border-bottom: 1px solid rgba(204,138,0,0.2);
+      margin-bottom: 1rem; font-size: 1rem;
+      text-transform: uppercase; letter-spacing: 1px; padding-bottom: 5px;
     }
-    .education-cards-container {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
+    .education-cards-container { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 1rem; }
     .edu-card {
-      background: #fffdfa;
-      border: 1px solid #ffdca6;
-      border-radius: 8px;
-      padding: 15px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
+      background: #fffdfa; border: 1px solid #ffdca6; border-radius: 8px;
+      padding: 15px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      display: flex; flex-direction: column; gap: 0.4rem;
       transition: transform 0.2s ease-in;
     }
-    .edu-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 3px 5px rgba(0,0,0,0.07);
-    }
-    .edu-card h3 {
-      font-size: 1rem;
-      color: #444;
-      margin: 0;
-    }
-    .edu-card p {
-      margin: 0;
-      color: #666;
-      font-size: 0.85rem;
-      line-height: 1.4;
-      font-style: italic;
-    }
+    .edu-card:hover { transform: translateY(-2px); box-shadow: 0 3px 5px rgba(0,0,0,0.07); }
+    .edu-card h3 { font-size: 1rem; color: #444; margin: 0; }
+    .edu-card p { margin: 0; color: #666; font-size: 0.85rem; line-height: 1.4; font-style: italic; }
 
     /* ----------------------------------
-       STICKY ARROW CENTERED AT THE BOTTOM
+       STICKY CENTER ARROW
     ---------------------------------- */
     .arrow-down {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
+      position: fixed; bottom: 20px; left: 50%;
       transform: translateX(-50%);
-      width: 40px;
-      height: 40px;
+      width: 40px; height: 40px;
       background: url("data:image/svg+xml,%3Csvg fill='%23004f9e' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 294.1L374.6 175.4c8.9-8.9 23.2-8.9 32 0 8.9 8.9 8.9 23.2 0 32L272.1 341.9c-8.9 8.9-23.2 8.9-32 0L105.4 207.4c-8.9-8.9-8.9-23.2 0-32 8.9-8.9 23.2-8.9 32 0L256 294.1z'/%3E%3C/svg%3E") no-repeat center/cover;
-      display: none;
-      z-index: 998;
-      animation: arrowBounce 2s infinite;
+      display: none; z-index: 998; animation: arrowBounce 2s infinite;
     }
     @keyframes arrowBounce {
       0%, 100% { transform: translate(-50%, 0); }
-      50%      { transform: translate(-50%, 5px); }
+      50% { transform: translate(-50%, 5px); }
     }
 
     /* ----------------------------------
        DARK MODE
     ---------------------------------- */
     @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #121212;
-        color: #e0e0e0;
-      }
-      a {
-        color: #bb86fc;
-      }
-      .navbar {
-        background-color: #1f1f1f;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-      }
-      .navbar a {
-        color: #bb86fc;
-      }
-      .contact-section,
-      .sidebar-section,
-      .sidebar-section-tools {
-        background: #1e1e1e;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.7);
-      }
-      .hero-left h1,
-      .hero-left .sub-info {
-        color: #e0e0e0;
-      }
-      .positionnement-box {
-        background: linear-gradient(45deg, #bb86fc, #7e78e2);
-        border-left: none;
-      }
-      .positionnement-box::before {
-        background-color: rgba(255,255,255,0.2);
-      }
-      .positionnement-box h2,
-      .positionnement-box .job-title,
-      .position-subtitle {
-        color: #e0e0e0;
-      }
+      body { background-color: #121212; color: #e0e0e0; }
+      a { color: #bb86fc; }
+      .navbar { background-color: #1f1f1f; box-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+      .navbar a { color: #bb86fc; }
 
-      #realisations {
-        background: linear-gradient(45deg, #2c2c2c, #1f1f1f);
-        border: 1px solid #444;
-        border-radius: 12px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.7);
-      }
-      #realisations h2 {
-        color: #bb86fc;
-        border-bottom: 1px solid #444;
-      }
+      .contact-section, .sidebar-section, .sidebar-section-tools { background: #1e1e1e; box-shadow: 0 2px 5px rgba(0,0,0,0.7); }
+      .hero-left h1, .hero-left .sub-info { color: #e0e0e0; }
 
-      .sidebar-section-tools {
-        background: linear-gradient(45deg, #2c2c2c, #1f1f1f);
-        border: 1px solid #444;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.7);
-      }
-      .sidebar-section-tools h2 {
-        color: #bb86fc;
-        border-bottom: 1px solid #444;
-      }
-      .sidebar-section-tools .comp-card {
-        background: #2c2c2c;
-        border: 1px solid #444;
-      }
+      .positionnement-box { background: linear-gradient(45deg, #bb86fc, #7e78e2); border-left: none; }
+      .positionnement-box::before { background-color: rgba(255,255,255,0.2); }
 
-      .sidebar-section-formation {
-        background: linear-gradient(45deg, #2c2c2c, #3a3a3a);
-        border: 1px solid #555;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.7);
-      }
-      .sidebar-section-formation h2 {
-        color: #ffc55c;
-        border-bottom: 1px solid #555;
-      }
-      .edu-card {
-        background: #1f1f1f;
-        border: 1px solid #555;
-      }
+      #achievements { background: linear-gradient(45deg, #2c2c2c, #1f1f1f); border: 1px solid #444; }
+      #achievements h2 { color: #bb86fc; border-bottom: 1px solid #444; }
 
-      .comp-card,
-      .mission-card,
-      .esn-card,
-      .edu-card {
-        background: #1e1e1e;
-        border: 1px solid #444;
-        color: #e0e0e0;
+      .kpi { background: #1e1e1e; border: 1px solid #444; }
+      .kpi .value { color: #e0e0e0; }
+
+      .sidebar-section-tools { background: linear-gradient(45deg, #2c2c2c, #1f1f1f); border: 1px solid #444; box-shadow: 0 2px 5px rgba(0,0,0,0.7); }
+      .sidebar-section-tools h2 { color: #bb86fc; border-bottom: 1px solid #444; }
+      .sidebar-section-tools .comp-card { background: #2c2c2c; border: 1px solid #444; }
+
+      .sidebar-section-formation { background: linear-gradient(45deg, #2c2c2c, #3a3a3a); border: 1px solid #555; box-shadow: 0 2px 5px rgba(0,0,0,0.7); }
+      .sidebar-section-formation h2 { color: #ffc55c; border-bottom: 1px solid #555; }
+      .edu-card { background: #1f1f1f; border: 1px solid #555; }
+
+      .comp-card, .mission-card, .esn-card, .edu-card {
+        background: #1e1e1e; border: 1px solid #444; color: #e0e0e0;
         box-shadow: 0 1px 3px rgba(0,0,0,0.7);
       }
-      section h2,
-      .sidebar-section h2,
-      .experience-box .exp-title {
-        color: #e0e0e0;
-        border-bottom: 1px solid #444;
-      }
-      .experience-box {
-        background: #2c2c2c;
-        border-left: 6px solid #bb86fc;
-      }
+      section h2, .sidebar-section h2, .experience-box .exp-title { color: #e0e0e0; border-bottom: 1px solid #444; }
+      .experience-box { background: #2c2c2c; border-left: 6px solid #bb86fc; }
+
       .arrow-down {
         background: url("data:image/svg+xml,%3Csvg fill='%23bb86fc' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath d='M256 294.1L374.6 175.4c8.9-8.9 23.2-8.9 32 0 8.9 8.9 8.9 23.2 0 32L272.1 341.9c-8.9 8.9-23.2 8.9-32 0L105.4 207.4c-8.9-8.9-8.9-23.2 0-32 8.9-8.9 23.2-8.9 32 0L256 294.1z'/%3E%3C/svg%3E") no-repeat center/cover;
       }
@@ -560,224 +300,178 @@
   <nav class="navbar">
     <div class="nav-container">
       <ul>
-        <li><a href="#introduction">Introduction</a></li>
-        <li><a href="#realisations">Achievements</a></li>
-        <li><a href="#experiences-ant">Previous Experience</a></li>
+        <li><a href="#introduction">Profile</a></li>
+        <li><a href="#achievements">Highlights</a></li>
+        <li><a href="#experience">Experience</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Centered sticky arrow at the bottom -->
-  <div class="arrow-down" id="arrowDown"></div>
+  <!-- Sticky center arrow -->
+  <div class="arrow-down" id="arrowDown" title="Scroll"></div>
 
   <!-- 3-column layout -->
   <div class="layout">
 
-    <!-- Left sidebar: Contact Card -->
+    <!-- Left sidebar: Contact -->
     <aside class="sidebar-left">
       <div class="contact-section">
         <div class="hero">
           <div class="hero-right">
-            <img
-              src="https://media.licdn.com/dms/image/v2/D4D03AQHoAbJ3HoZkwA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1711397858124?e=1765411200&v=beta&t=9v8CBmppqXFK0_faxySXv69jEeV7oE7ixpf6OJ7Mhms"
-              alt="Photo of Florent Papagalli"
-            />
+            <img src="https://media.licdn.com/dms/image/v2/D4E03AQHg8Eh_7GwCaQ/profile-displayphoto-crop_800_800/B4EZuKYMFFHcAI-/0/1767553157001?e=1769644800&v=beta&t=nU04yZBRb2_Sbvg2u8PkgySObJ-P6xFFCHhzMsgiaj0" alt="Florent Papagalli" />
           </div>
           <div class="hero-left">
             <h1>Florent Papagalli</h1>
             <p class="sub-info">
               Phone: +33 6 25 33 50 52<br>
-              Email:
-              <a href="mailto:Papagalli.florent@gmail.com">
-                Papagalli.florent@gmail.com
-              </a><br>
-              LinkedIn:
-              <a
-                href="https://www.linkedin.com/in/florent-papagalli-33629b158/"
-                target="_blank">
-                linkedin.com/in/florent-papagalli
-              </a>
+              Email: <a href="mailto:Papagalli.florent@gmail.com">Papagalli.florent@gmail.com</a><br>
+              LinkedIn: <a href="https://www.linkedin.com/in/florent-papagalli-33629b158/" target="_blank" rel="noopener">linkedin.com/in/florent-papagalli</a>
             </p>
           </div>
         </div>
-        <!-- Position -->
+
+        <!-- Positioning -->
         <div class="positionnement-box">
-          <h2>Position</h2>
-          <p class="job-title">Service Delivery Manager</p>
+          <h2>Target Role</h2>
+          <p class="job-title">IT Service Delivery &amp; Project Manager</p>
+          <p class="subtitle">End-User Services · Device Refresh · Process Migration</p>
         </div>
       </div>
     </aside>
 
-    <!-- Center: Introduction, Achievements, Experience -->
+    <!-- Center: Profile, Highlights, Experience -->
     <main>
-      <!-- INTRODUCTION -->
+      <!-- PROFILE -->
       <section id="introduction">
-        <h2>Introduction</h2>
+        <h2>Profile</h2>
         <div class="section-content">
           <p>
-            Versatile IT professional, having moved from <strong>VIP support</strong> to
-            <strong>Incident/Problem Management</strong> and then into
-            <strong>Service Delivery</strong>.
-            Currently <strong>Service Delivery Manager at Experis</strong> for <strong>Danone</strong>,
-            I leverage clear communication, leadership of cross-functional teams
-            and a strong results-oriented mindset (SLA/KPI, continuous
-            improvement).
+            <strong>IT Service Delivery &amp; Project Manager</strong> with a progressive background in
+            <strong>Major Incident Management</strong> and <strong>Problem Management</strong> before taking
+            ownership of end-to-end contract delivery.
+            Comfortable in multi-team environments, I leverage <strong>ITIL</strong>, service performance steering
+            (<strong>SLA / KPI / OPI</strong>) and clear, business-oriented communication to stabilize services,
+            secure continuity and drive continuous improvement.
           </p>
         </div>
       </section>
 
-      <!-- ACHIEVEMENTS -->
-      <section id="realisations">
-        <h2>Achievements</h2>
+      <!-- HIGHLIGHTS / ACHIEVEMENTS -->
+      <section id="achievements">
+        <h2>Highlights</h2>
+
+        
+
         <div class="comp-cards-container">
-          <!-- Card 1 -->
           <div class="comp-card">
-            <h3>
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/2949/2949868.png"
-                alt="Service Delivery Icon"
-              >
-              Service Delivery
-            </h3>
+            <h3><img src="https://cdn-icons-png.flaticon.com/512/2949/2949868.png" alt="Service Delivery Icon">Service Delivery &amp; Governance</h3>
             <ul>
-              <li>Redesigned <strong>steering committee</strong> materials and reporting.</li>
-              <li>Implemented <strong>“weather” indicators</strong> for each service line for efficient IT service monitoring.</li>
-              <li>Designed and formalised a <strong>crisis management process</strong> and business communication framework.</li>
-              <li>Optimised <strong>stock management</strong> to ensure full consistency between logical data and physical inventory.</li>
+              <li><strong>End-to-end contract ownership</strong> with full financial steering (forecast, revenue, margin, year-end landing).</li>
+              <li><strong>Multi-site delivery</strong> across Paris, Rueil-Malmaison, Évian, Volvic, Gif-sur-Yvette and Limonest.</li>
+              <li><strong>Governance rebuild</strong> after nearly two years without stable governance: redesigned COPIL with a decision-oriented, value-driven format.</li>
+              <li><strong>Execution discipline</strong>: regular team checkpoints, formal action plans, and 1-to-1 steering with the Service Operations Manager (SOM).</li>
             </ul>
           </div>
-          <!-- Card 2 -->
+
           <div class="comp-card">
-            <h3>
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/2767/2767217.png"
-                alt="Incident Management Icon"
-              >
-              Incident &amp; Problem Management
-            </h3>
+            <h3><img src="https://cdn-icons-png.flaticon.com/512/2767/2767217.png" alt="Incident Management Icon">Major Incident &amp; Problem Management</h3>
             <ul>
-              <li>Supervision of <strong>P1/P2</strong> incidents from the Control Tower, leading crisis calls.</li>
-              <li>Automated <strong>alerting and history</strong> for P1/P2 to improve responsiveness and ease post-mortem handling.</li>
-              <li>Redesigned templates and raised awareness around <strong>RCAs, post-mortems and known errors</strong> to improve operational efficiency.</li>
-              <li>Led <strong>CAB and eCAB</strong> to enable responsive, proactive change management while minimising business impact.</li>
+              <li><strong>Major Incident Management (P1/P2)</strong> from Control Tower: crisis facilitation and cross-team coordination to restoration.</li>
+              <li><strong>Improved Service Desk L1 reactivity by ~80%</strong> through better structure, escalation and operational practices.</li>
+              <li><strong>Post-mortems run immediately</strong> after resolution; strengthened RCA and corrective action follow-up.</li>
+              <li>Participation in customer-managed <strong>CAB / eCAB</strong> to reduce change risk and user impact.</li>
             </ul>
           </div>
-          <!-- Card 3 -->
+
           <div class="comp-card">
-            <h3>
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/3126/3126594.png"
-                alt="Project Icon"
-              >
-              Project Management
-            </h3>
+            <h3><img src="https://cdn-icons-png.flaticon.com/512/3126/3126594.png" alt="Project Icon">Projects, Refresh &amp; Migration</h3>
             <ul>
-              <li><strong>Refresh</strong> of mobile and PC fleet.</li>
-              <li><strong>Automated</strong> appointment &amp; reminder solution, tracking dashboards and history.</li>
+              <li><strong>Device refresh programs</strong>: planning, logistics coordination and on-site supervision (OSS).</li>
+              <li><strong>Process migration</strong> to re-align operations with scope, governance and service objectives.</li>
+              <li><strong>Automation</strong> (in production): immediate P1/P2 alerting, improved traceability and faster mobilization.</li>
+              <li><strong>IT stock &amp; inventory reliability</strong>: restored full coherence between physical stock and logical records/CMDB processes.</li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- PREVIOUS EXPERIENCE -->
-      <section id="experiences-ant">
+      <!-- EXPERIENCE -->
+      <section id="experience">
         <div class="experience-box">
-          <p class="exp-title">Professional Background</p>
+          <p class="exp-title">Professional Experience</p>
 
-          <!-- ESN Card “Experis” -->
           <div class="esn-card">
-            <img
-              src="https://cdn.theorg.com/089d845e-56d1-441d-86ea-3d3e64ef85f8_thumb.jpg"
-              alt="Experis Logo"
-              class="company-logo"
-            >
+            <img src="https://cdn.theorg.com/089d845e-56d1-441d-86ea-3d3e64ef85f8_thumb.jpg" alt="Experis Logo" class="company-logo">
             <div class="esn-info">
               <h3>EXPERIS</h3>
-              <span>March 2022 – Present</span>
+              <span>Mar 2022 – Present</span>
             </div>
           </div>
 
-          <!-- Mission: Danone -->
           <div class="mission-card">
             <div class="mission-header">
-              <img
-                src="https://companieslogo.com/img/orig/BN.PA-a84c788c.png?t=1720244491"
-                class="company-logo"
-                alt="Danone Logo"
-              >
+              <img src="https://companieslogo.com/img/orig/BN.PA-a84c788c.png?t=1720244491" class="company-logo" alt="Danone Logo">
               <div>
-               <h4>DANONE</h4>
-                 <div class="location-dates">
-                  Rueil-Malmaison, Île-de-France, France — Mar. 2023 to Present
-                </div>
+                <h4>DANONE (France)</h4>
+                <div class="location-dates">Rueil-Malmaison, France — Mar 2023 – Present</div>
               </div>
             </div>
 
-            <div class="job-title">Service Delivery Manager — Permanent (Apr. 2025 – Present)</div>
+            <div class="job-title">Service Manager (Apr 2025 – Present)</div>
             <ul>
-              <li>Management of a global outsourcing contract (Service Desk, 6 OSS teams, Control Tower: Incident, UX, Knowledge).</li>
-              <li>Leading client steering committees with transparent, business-aligned governance.</li>
-              <li>Close monitoring of <strong>SLA/KPI</strong>, risk anticipation mechanisms and proactive resolution.</li>
-              <li>Continuous improvement to increase customer satisfaction and internal efficiency.</li>
-            </ul>
-            <p class="skills-line"><em>Skills:</em> Microsoft Power BI</p>
-
-            <div class="job-title" style="margin-top:10px;">Incident &amp; Problem Manager (Mar. 2023 – Apr. 2025)</div>
-            <ul>
-              <li>Supervision of major incidents/problems (P1/P2) from the Control Tower, in coordination with UX &amp; Knowledge.</li>
-              <li>Fast resolution of critical incidents to guarantee service continuity.</li>
-              <li>Coordination of crisis management strategies and support to project teams.</li>
-              <li>Continuous improvement to maintain a high level of satisfaction.</li>
+              <li><strong>End-to-end service delivery</strong> across Service Desk, OSS teams and Control Tower scope for ~8,500 end users.</li>
+              <li><strong>Performance steering</strong>: SLA / KPI / OPI monitoring, risk identification, action plans and operational gains tracking.</li>
+              
+              <li><strong>Financial ownership</strong>: forecast, margin, revenue, year-end landing</li>
+              <li><strong>Service stabilization</strong>: contract scope control and execution follow-up via structured checkpoints and action plans.</li>
             </ul>
             <p class="skills-line">
-              <em>Skills:</em>
-              Problem Management · ITIL · IT Service Management · SLA · KPI · Project Management · Microsoft Power BI · Incident Management
+              <em>Skills:</em> Service Delivery · ITIL · SLA/KPI/OPI · Governance (COPIL) · Cross-team coordination · Stakeholder management · Continuous improvement
+            </p>
+
+            <div class="job-title" style="margin-top:10px;">Incident &amp; Problem Manager (Mar 2023 – Apr 2025)</div>
+            <ul>
+              <li><strong>Major Incident Management (P1/P2)</strong>: crisis facilitation and technical coordination until restoration.</li>
+              <li><strong>Problem Management</strong>: RCA, post-mortems and corrective action follow-up to reduce recurrence.</li>
+              <li><strong>Change governance participation</strong> (CAB/eCAB) with impact and risk assessment focus.</li>
+              <li>Close collaboration with OSS and Service Desk to align operational practices and expected service quality.</li>
+            </ul>
+            <p class="skills-line">
+              <em>Skills:</em> Major Incident Management · Crisis Management · RCA · Post-mortems · Known Errors · CAB/eCAB · Technical coordination
             </p>
           </div>
 
-          <!-- Mission: Christian Dior Couture -->
           <div class="mission-card">
             <div class="mission-header">
-              <img
-                src="https://decoglam.net/storage/images/image?remote=https%3A%2F%2Fdecoglam.net%2FWebRoot%2FStore20%2FShops%2F57b2465e-10e3-4ede-a8d1-6ede59d24921%2F5E84%2F604E%2F421F%2FBE93%2FD529%2F0A48%2F3549%2F7AC5%2FCD.jpg&shop=57b2465e-10e3-4ede-a8d1-6ede59d24921e"
-                class="company-logo"
-                alt="Christian Dior Couture Logo"
-              >
+              <img src="https://decoglam.net/storage/images/image?remote=https%3A%2F%2Fdecoglam.net%2FWebRoot%2FStore20%2FShops%2F57b2465e-10e3-4ede-a8d1-6ede59d24921%2F5E84%2F604E%2F421F%2FBE93%2FD529%2F0A48%2F3549%2F7AC5%2FCD.jpg&shop=57b2465e-10e3-4ede-a8d1-6ede59d24921e" class="company-logo" alt="Christian Dior Couture Logo">
               <div>
                 <h4>CHRISTIAN DIOR COUTURE</h4>
-                <div class="location-dates">
-                  Paris, Île-de-France, France — Mar. 2022 to Apr. 2023
-                </div>
+                <div class="location-dates">Paris, France — Mar 2022 – Apr 2023</div>
               </div>
             </div>
 
-            <div class="job-title">Onsite VIP Support — Permanent (Oct. 2022 – Apr. 2023) · Hybrid</div>
+            <div class="job-title">Onsite VIP IT Support (Oct 2022 – Apr 2023) · Hybrid</div>
             <ul>
-              <li>VIP support on site and in showrooms; flawless formal communication.</li>
-              <li>Training new technicians; writing knowledge base articles.</li>
+              <li>Onsite VIP and showroom support; strong executive communication and discretion.</li>
+              <li>Onboarding of new technicians; knowledge base articles and operational documentation.</li>
             </ul>
 
-            <div class="job-title">Showroom IT Support — Permanent (Dec. 2022 – Apr. 2023) · On-site</div>
+            <div class="job-title">Showroom IT Support (Dec 2022 – Apr 2023) · On-site</div>
             <ul>
-              <li>Support on events/showrooms, preparation and setup of workstations.</li>
+              <li>Event/showroom IT support, workstation setup and on-site assistance.</li>
             </ul>
 
-            <div class="job-title">IT Help Desk Technician — Contract (Mar. 2022 – Sep. 2022)</div>
+            <div class="job-title">IT Help Desk Technician (Mar 2022 – Sep 2022) · Contract</div>
             <ul>
-              <li>Trilingual support (FR/EN/ZH), multi-channel intake and L1 resolution.</li>
+              <li>Multilingual support (FR/EN/ZH), multi-channel intake and L1 resolution.</li>
             </ul>
           </div>
-        </div><!-- End of Professional Background -->
+        </div>
 
         <h2>Previous Experience</h2>
-        <!-- Past Experiences -->
         <div class="mission-card">
           <div class="mission-header">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/3565/3565418.png"
-              alt="Translation & Teaching Icon"
-              class="company-logo"
-            >
+            <img src="https://cdn-icons-png.flaticon.com/512/3565/3565418.png" alt="Translation & Teaching Icon" class="company-logo">
             <div>
               <h4>Translation &amp; Teaching</h4>
               <div class="location-dates">2016 – 2022</div>
@@ -785,7 +479,7 @@
           </div>
           <ul>
             <li><b>Translator</b> (French, English, Chinese) and <b>Translation Project Manager</b></li>
-            <li><b>Interpreter</b> (for law enforcement)</li>
+            <li><b>Interpreter</b> (law enforcement context)</li>
             <li><b>Language Teacher</b> (English and French)</li>
           </ul>
         </div>
@@ -794,19 +488,11 @@
 
     <!-- Right sidebar: Tools, Languages & Education -->
     <aside class="sidebar-right">
-      <!-- Tools & Languages -->
       <section class="sidebar-section sidebar-section-tools">
         <h2>Tools &amp; Languages</h2>
         <div class="sidebar-comp-cards">
-          <!-- Tools -->
           <div class="comp-card">
-            <h3>
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/3305/3305617.png"
-                alt="Tools Icon"
-              >
-              Tools
-            </h3>
+            <h3><img src="https://cdn-icons-png.flaticon.com/512/3305/3305617.png" alt="Tools Icon">Tools</h3>
             <ul>
               <li>ServiceNow</li>
               <li>Notion, Trello</li>
@@ -815,17 +501,10 @@
               <li>Power BI (DAX, Power Query)</li>
             </ul>
           </div>
-          <!-- Languages -->
           <div class="comp-card">
-            <h3>
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/3210/3210336.png"
-                alt="Language Icon"
-              >
-              Languages
-            </h3>
+            <h3><img src="https://cdn-icons-png.flaticon.com/512/3210/3210336.png" alt="Language Icon">Languages</h3>
             <ul>
-              <li>French (native)</li>
+              <li>French (Native)</li>
               <li>English (C2)</li>
               <li>Chinese (B2), Italian (B1)</li>
             </ul>
@@ -833,26 +512,25 @@
         </div>
       </section>
 
-      <!-- Education -->
       <section class="sidebar-section-formation">
         <h2>Education</h2>
         <div class="education-cards-container">
           <div class="edu-card">
-            <h3>🎓 MBA in Business Administration and Management</h3>
+            <h3>🎓 MBA – Business Administration &amp; Management</h3>
             <p>Beijing International Studies University (2018 – 2020)</p>
           </div>
           <div class="edu-card">
-            <h3>🎓 Bachelor’s Degree in Applied Foreign Languages (English/Chinese)</h3>
+            <h3>🎓 Bachelor – Applied Foreign Languages (English/Chinese)</h3>
             <p>Université Lyon 2 (2015 – 2017)</p>
           </div>
         </div>
       </section>
     </aside>
-  </div><!-- /layout -->
+  </div>
 
-  <!-- Script highlight + sticky arrow -->
+  <!-- Script: click highlight + sticky arrow -->
   <script>
-    // 1) highlightPop animation when clicking on navbar links
+    // 1) Highlight animation on navbar click
     document.querySelectorAll('.navbar a').forEach(link => {
       link.addEventListener('click', evt => {
         evt.preventDefault();
@@ -861,20 +539,22 @@
         if (!targetEl) return;
         targetEl.scrollIntoView({ behavior: 'smooth' });
         targetEl.classList.add('section-highlight');
-        setTimeout(() => {
-          targetEl.classList.remove('section-highlight');
-        }, 1000);
+        setTimeout(() => { targetEl.classList.remove('section-highlight'); }, 1000);
       });
     });
 
-    // 2) Handling the sticky arrow for the "Previous Experience" section
+    // 2) Sticky arrow: show when "Experience" section is in view but not fully visible
     const arrowDownEl = document.getElementById('arrowDown');
-    const experiencesSection = document.getElementById('experiences-ant');
+    const experienceSection = document.getElementById('experience');
+
+    arrowDownEl.addEventListener('click', () => {
+      if (!experienceSection) return;
+      experienceSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
 
     window.addEventListener('scroll', () => {
-      if (!experiencesSection) return;
-      const rect = experiencesSection.getBoundingClientRect();
-      // The arrow shows up while the bottom of the section is not in view
+      if (!experienceSection) return;
+      const rect = experienceSection.getBoundingClientRect();
       const showArrow = rect.top < window.innerHeight && rect.bottom > window.innerHeight;
       arrowDownEl.style.display = showArrow ? 'block' : 'none';
     });
